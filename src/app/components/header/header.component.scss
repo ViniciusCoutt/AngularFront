@@ -1,0 +1,42 @@
+@import "./src/styles.scss";
+
+header {
+  background-color: $headerColor;
+  @include flexCenter(center);
+
+  font-family: 'Russo One', sans-serif;
+  font-weight: 400;
+}
+
+.header-content {
+  width: 80%;
+  @include flexCenter(space-between);
+  padding: 20px 0;
+}
+
+.logo img {
+  width: 200px;
+}
+
+.logo:hover{
+  cursor: pointer;
+}
+
+h1 {
+  display: none;
+}
+
+.menu{
+  display: flex;
+  gap:40px;
+}
+
+.menu a{
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+.menu a:hover{
+  color: black;
+  transition: 0.3s;
+}
