@@ -1,0 +1,42 @@
+@import "./src/styles.scss";
+
+main {
+  font-family: sans-serif;
+}
+
+section#banner  {
+  height: 600px;
+
+  background-image: url('../../../assets/img/foto.jpg');
+
+  //background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed
+}
+
+.call-to-action {
+  @include flexCenter(space-between);
+  padding: 50px;
+  gap: 20px;
+}
+
+.call-to-action h3 {
+  font-size: 3.5rem;
+  text-align: left;
+  font-style: normal;
+}
+
+.call-to-action .btn {
+  background: #2E5B98;
+  border-radius: 15px;
+  padding: 20px 50px;
+  font-size: 1.5rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.call-to-action .btn:hover {
+  cursor: pointer;
+}
