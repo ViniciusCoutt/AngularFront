@@ -1,0 +1,46 @@
+@import "./src/styles.scss";
+
+main {
+  width: 80%;
+  //height: 100vh;
+  //background: rgb(0, 0, 0);
+  margin: auto;
+}
+
+.sorting-items {
+  padding: 20px;
+  //@include dflex(space-evenly);
+
+  select {
+    color: black;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  //justify-content: space-evenly;
+  gap: 20px;
+
+  .card {
+    width: 365px;
+    height: 350px;
+    background: #32383E;
+    border-radius: 5px;
+    box-shadow: 2px 3px 10px 0px rgba(0, 0, 0, 0.459);
+    margin: auto;
+
+    .info {
+      padding: 10px;
+    }
+  }
+
+  .card:hover{
+    cursor: pointer;
+    box-shadow: 2px 3px 10px 5px rgba(0, 0, 0, 0.616);
+    transition: .5s;
+
+    transform: translate3d(5px);
+  }
+}
+

@@ -1,9 +1,28 @@
-<p>game-list works!</p>
+<main>
+  <div class="sorting-items">
+    <div class="dropdown">
+      <label for="platforms">Plataforma: </label>
 
-<ul *ngFor="let game of games | async">
+
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card" *ngFor="let game of games | async">
+      <img src="{{game.thumbnail}}" alt="thumbnail">
+      <div class="info">
+        <h1>{{game.title}}</h1>
+        <p>{{game.short_description}}</p>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+<!-- <ul *ngFor="let game of games | async">
   <li>
     {{game.title}}
   </li>
-</ul>
+</ul> -->
 
 

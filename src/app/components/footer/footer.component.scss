@@ -8,5 +8,5 @@ footer {
   height: 50px;
   background-color: #c4c2c2;
 
-  @include flexCenter(center);
+  @include dflex(center);
 }

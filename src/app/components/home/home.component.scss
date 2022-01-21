@@ -17,7 +17,7 @@ section#banner  {
 }
 
 .call-to-action {
-  @include flexCenter(space-between);
+  @include dflex(space-between);
   padding: 50px;
   gap: 20px;
 }

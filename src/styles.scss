@@ -1,7 +1,7 @@
 $bodyColor: #1B2838;
 $headerColor: #272B30;
 
-@mixin flexCenter($justify_content){
+@mixin dflex($justify_content){
 	display: flex;
 	align-items: center;
   justify-content: $justify_content;
@@ -13,7 +13,7 @@ $headerColor: #272B30;
 	box-sizing: border-box;
   text-decoration: none;
   color: white;
- 
+
 }
 
 body{
@@ -22,3 +22,6 @@ body{
 
 	background-color: $bodyColor;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
