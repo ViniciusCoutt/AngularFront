@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --ssl --sslKey C:/dev/ReqAPI_Angular/AngularFront/ssl/localhost-key.key --sslCert C:/dev/ReqAPI_Angular/AngularFront/ssl/localhost.crt",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
