@@ -8,7 +8,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { GameListComponent } from './components/game-list/game-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -22,8 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
