@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  categoryIsActive: boolean = false;
+  platformIsActive: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  categoryClick(){
+    this.categoryIsActive = !this.categoryIsActive
+  }
+
+  platformClick(){
+    this.platformIsActive = !this.platformIsActive
+
   }
 
 }

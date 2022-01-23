@@ -28,16 +28,49 @@ h1 {
 }
 
 .menu{
+  //@include dflex(space-between);
+
   display: flex;
-  gap:40px;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
 }
 
 .menu a{
   font-size: 1.2rem;
-  padding: 10px;
+  //padding: 10px;
+  @include dflex(space-between);
+
 }
 
 .menu a:hover{
-  color: black;
+  //color: black;
   transition: 0.3s;
+  cursor: pointer;
 }
+
+.menu .dropdown {
+  position: relative;
+  //display: inline-block;
+}
+
+.menu .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: $headerColor;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  top: 57px;
+}
+
+.menu .platform-active {
+  display: block;
+}
+
+.menu .category-active {
+  display: block;
+}
+
+

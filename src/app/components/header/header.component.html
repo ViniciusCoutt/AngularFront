@@ -4,9 +4,32 @@
     <span class="logo" routerLink=""><img src="assets/img/logo.svg" alt=""></span>
 
     <nav class="menu">
-      <a routerLink="">Home</a>
-      <a routerLinkActive="MenuPlataforma">Plataforma</a>
-      <a routerLinkActive="MenuCategoria">Categorias</a>
+
+      <a routerLink="">
+        Home
+      </a>
+
+      <a routerLinkActive="MenuPlataform" class="dropdown" (click)="platformClick()" >
+
+        Plataforma<mat-icon>arrow_drop_down</mat-icon>
+
+        <div class="dropdown-content platform" [ngClass]="{ 'platform': !platformIsActive, 'platform-active': platformIsActive }">
+          Hello World
+        </div>
+
+      </a>
+
+
+      <a routerLinkActive="MenuCategory" class="dropdown" (click)="categoryClick()">
+
+        Categorias <mat-icon>arrow_drop_down</mat-icon>
+
+        <div class="dropdown-content category" [ngClass]="{ 'category': !categoryIsActive, 'category-active': categoryIsActive }">
+          Hello
+        </div>
+      </a>
+
     </nav>
   </div>
+
 </header>
