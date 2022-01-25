@@ -1,52 +1,44 @@
 import { GameListService } from '../../services/game-list.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Game } from 'src/app/models/game';
 import { Observable } from 'rxjs';
-
+import classification from 'src/app/shared/classification-items';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-list',
   templateUrl: './game-list.component.html',
-  styleUrls: ['./game-list.component.scss']
+  styleUrls: ['./game-list.component.scss'],
+  providers: [GameListService],
 })
+export class GameListComponent {
+  games: Observable<Game[]>;
+  url: string;
+  platforms: any;
+  release_date: string;
 
-export class GameListComponent implements OnInit {
+  constructor(private gameListServ: GameListService, private router: Router) {
+    router.events.subscribe((x) => {
+      this.url = window.location.search;
+      this.get(this.url);
+    });
 
-  public games: Observable<Game[]>;
-  public category: string;
-  public platform: string;
-  public release_date: string;
-
-  constructor(
-    private gameListServ: GameListService
-    ) { }
-
-  ngOnInit(): void {
-    this.getAllGames();
-    //this.games = this.gameListServ.getAll();
+    this.platforms = classification.platform;
   }
 
-  getAllGames(): void {
-    this.games = this.gameListServ.getAll();
-    this.games, (error: any) => {
-      console.log(error)
-    }
-    /*this.gameListServ.getAll().subscribe(
-      (games: Game[]) => {
-        this.games = games;
-      },
+  // ngOnInit(): void {
+
+  //   GameListService.eventt.subscribe(
+  //     game => this.games = game
+  //   );
+  // }
+
+  get(url?: string): void {
+    //this.games = EMPTY;
+    this.games = this.gameListServ.get(url);
+    this.games,
       (error: any) => {
         console.log(error);
-      }
-    );*/
+      };
   }
-
-  SortBy(category?: string, platform?: string, release_date?: string) : void {
-    this.games = this.gameListServ.sortBy(category, platform, release_date);
-    this.games, (error: any) => {
-      console.log(error)
-    }
-  }
-
-
 }

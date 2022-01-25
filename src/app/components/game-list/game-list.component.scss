@@ -1,7 +1,7 @@
 @import "./src/styles.scss";
 
 main {
-  width: 80%;
+  width: 85%;
   //height: 100vh;
   //background: rgb(0, 0, 0);
   margin: auto;
@@ -17,30 +17,42 @@ main {
 }
 
 .cards {
-  display: flex;
   flex-wrap: wrap;
-  //justify-content: space-evenly;
-  gap: 20px;
+  gap: 10px;
+  @include dflex(space-around);
+
+  .card-container {
+    width: 370px;
+    height: 355px;
+    margin-bottom: 20px;
+  }
 
   .card {
     width: 365px;
     height: 350px;
     background: #32383E;
-    border-radius: 5px;
-    box-shadow: 2px 3px 10px 0px rgba(0, 0, 0, 0.459);
+    border-radius: 7px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.185);
     margin: auto;
+    transition: 0.2s ease-in;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+      border-radius: 7px 7px 0 0;
+    }
 
     .info {
       padding: 10px;
     }
-  }
 
-  .card:hover{
-    cursor: pointer;
-    box-shadow: 2px 3px 10px 5px rgba(0, 0, 0, 0.616);
-    transition: .5s;
-
-    transform: translate3d(5px);
+    &:hover {
+      cursor: pointer;
+      width: 370px;
+      height: 355px;
+      box-shadow: 0 .7rem 1.2rem rgba(0, 0, 0, 0.26);
+    }
   }
 }
-
+@import "~bootstrap/scss/bootstrap";
+//@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";

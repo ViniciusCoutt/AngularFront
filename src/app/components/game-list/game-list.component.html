@@ -1,19 +1,59 @@
 <main>
   <div class="sorting-items">
-    <div class="dropdown">
-      <label for="platforms">Plataforma: </label>
 
+    <div class="btn-group" dropdown>
+
+      <button type="button" class="btn btn-danger">Plataforma</button>
+      <button id="button-split" type="button" dropdownToggle
+        class="btn btn-danger dropdown-toggle dropdown-toggle-split" aria-controls="dropdown-split">
+        <span class="caret"></span>
+        <span class="sr-only visually-hidden">Split button!</span>
+        Todas as plataformas
+      </button>
+
+      <ul id="dropdown-split" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-split">
+        <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+        <li role="menuitem"><a class="dropdown-item" href="#">Another action</a>
+        </li>
+        <li role="menuitem"><a class="dropdown-item" href="#">Something else
+            here</a></li>
+        <li class="divider dropdown-divider"></li>
+        <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+        </li>
+      </ul>
 
     </div>
+    <!-- <div class="dropdown"> -->
+    <!-- <label for="platforms">Plataforma: </label> -->
+    <!-- <select name="platforms" id="platforms"> -->
+
+    <!-- <option value="" *ngFor="let platform of platforms" (click)="get()">
+          <a [routerLink]="['/games']" [queryParams]="{ platform: platform.queryParams }"
+          queryParamsHandling="merge">{{platform.name}}</a>
+        </option> -->
+
+
+    <!-- <option value="" (click)="sort()">Broser(Web)</option>
+        <option value="" (click)="sort()">Todas as plataformas</option> -->
+    <!-- [queryParams]="{ platform: platform.queryParams }" queryParamsHandling="merge" -->
+    <!-- </select> -->
+
+    <!-- </div> -->
   </div>
 
   <div class="cards">
-    <div class="card" *ngFor="let game of games | async">
-      <img src="{{game.thumbnail}}" alt="thumbnail">
-      <div class="info">
-        <h1>{{game.title}}</h1>
-        <p>{{game.short_description}}</p>
+
+    <div class="card-container" *ngFor="let game of games | async">
+
+      <div class="card">
+        <img src="{{game.thumbnail}}" alt="thumbnail">
+        <div class="info">
+          <h1>{{game.title}}</h1>
+          <p>{{game.short_description}}</p>
+        </div>
+
       </div>
+
     </div>
 
   </div>
@@ -24,5 +64,3 @@
     {{game.title}}
   </li>
 </ul> -->
-
-
