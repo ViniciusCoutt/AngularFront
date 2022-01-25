@@ -4,32 +4,41 @@
     <span class="logo" routerLink=""><img src="assets/img/logo.svg" alt=""></span>
 
     <nav class="menu">
-
       <a routerLink="">
         Home
       </a>
 
-      <a routerLinkActive="MenuPlataform" class="dropdown" (click)="platformClick()" >
+      <a routerLinkActive="MenuPlataform" class="dropdown" (click)="platformClick()">
 
         Plataforma<mat-icon>arrow_drop_down</mat-icon>
 
-        <div class="dropdown-content platform" [ngClass]="{ 'platform': !platformIsActive, 'platform-active': platformIsActive }">
-          Hello World
-        </div>
-
+        <ul class="dropdown-content platform"
+          [ngClass]="{ 'platform': !dropPlatformIsActive, 'platform-active': dropPlatformIsActive }">
+          <li *ngFor="let platform of platforms " (click)="get()">
+            <a [routerLink]="['/games']" [queryParams]="{ platform: platform.queryParams }"
+              queryParamsHandling="merge">{{platform.name}}</a>
+          </li>
+        </ul>
       </a>
-
 
       <a routerLinkActive="MenuCategory" class="dropdown" (click)="categoryClick()">
 
         Categorias <mat-icon>arrow_drop_down</mat-icon>
 
-        <div class="dropdown-content category" [ngClass]="{ 'category': !categoryIsActive, 'category-active': categoryIsActive }">
-          Hello
-        </div>
+        <ul class="dropdown-content category"
+          [ngClass]="{ 'category': !dropCategoryIsActive, 'category-active': dropCategoryIsActive }">
+          <li>
+            <a [routerLink]="['/games']" (click)="get()" [queryParams]="{ category: 'mmorpg' }"
+              queryParamsHandling="merge">MMO</a>
+          </li>
+          <li>
+            <a [routerLink]="['/games']" (click)="get()" [queryParams]="{ category: 'shooter' }"
+              queryParamsHandling="merge">Shooter</a>
+          </li>
+
+        </ul>
       </a>
 
     </nav>
   </div>
-
 </header>
