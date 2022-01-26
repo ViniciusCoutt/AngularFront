@@ -1,5 +1,5 @@
-$bodyColor: #1B2838;
-$headerColor: #272B30;
+$bodyColor: #272B30;
+$headerColor: #1B2838;
 
 @mixin dflex($justify_content){
 	display: flex;
@@ -38,3 +38,5 @@ body{
 
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+

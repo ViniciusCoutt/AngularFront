@@ -20,6 +20,7 @@ section#banner  {
   @include dflex(space-between);
   padding: 50px;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .call-to-action h3 {

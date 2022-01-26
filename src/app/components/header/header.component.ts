@@ -12,32 +12,32 @@ import classification from 'src/app/shared/classification-items';
 
 export class HeaderComponent implements OnInit {
   games: Observable<Game[]>;
-  categories: any;
-  platforms: any;
+  categories: any[];
+  platforms: any[];
+  isPlatformCollapsed: boolean = true;
+  isCategoryCollapsed: boolean = true;
 
   constructor(private gameListServ: GameListService) {
-    //this.games = this.gameListServ.getAll();
-    // this.platforms = classification.platform;
+    this.platforms = classification.platforms;
+    this.categories = classification.genres;
   }
 
   ngOnInit(): void {
-    this.platforms = classification.platform;
-  }
 
-  dropCategoryIsActive: boolean = false;
-  dropPlatformIsActive: boolean = false;
+  }
 
   public get() {
     this.gameListServ.get();
   }
 
   categoryClick() {
-    this.dropCategoryIsActive = !this.dropCategoryIsActive;
-    this.dropPlatformIsActive = false;
+    this.isCategoryCollapsed = !this.isCategoryCollapsed;
+    this.isPlatformCollapsed = true;
   }
 
   platformClick() {
-    this.dropPlatformIsActive = !this.dropPlatformIsActive;
-    this.dropCategoryIsActive = false;
+    this.isPlatformCollapsed = !this.isPlatformCollapsed;
+    this.isCategoryCollapsed = true;
   }
+
 }

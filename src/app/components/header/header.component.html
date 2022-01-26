@@ -1,44 +1,48 @@
 <header>
-  <div class="header-content">
+  <div class="header-content position-relative">
     <h1>GamerSide</h1>
-    <span class="logo" routerLink=""><img src="assets/img/logo.svg" alt=""></span>
+    <span class="logo" routerLink=""><img src="assets/img/logo.svg" alt="" /></span>
 
     <nav class="menu">
-      <a routerLink="">
-        Home
+
+      <a routerLink=""> Home </a>
+
+      <a type="button" (click)="platformClick()" [attr.aria-expanded]="isPlatformCollapsed"
+        aria-controls="collapseBasic">
+        Plataformas
       </a>
 
-      <a routerLinkActive="MenuPlataform" class="dropdown" (click)="platformClick()">
-
-        Plataforma<mat-icon>arrow_drop_down</mat-icon>
-
-        <ul class="dropdown-content platform"
-          [ngClass]="{ 'platform': !dropPlatformIsActive, 'platform-active': dropPlatformIsActive }">
-          <li *ngFor="let platform of platforms " (click)="get()">
-            <a [routerLink]="['/games']" [queryParams]="{ platform: platform.queryParams }"
-              queryParamsHandling="merge">{{platform.name}}</a>
-          </li>
-        </ul>
+      <a type="button" (click)="categoryClick()" [attr.aria-expanded]="isCategoryCollapsed"
+        aria-controls="collapseBasic">
+        Categorias
       </a>
-
-      <a routerLinkActive="MenuCategory" class="dropdown" (click)="categoryClick()">
-
-        Categorias <mat-icon>arrow_drop_down</mat-icon>
-
-        <ul class="dropdown-content category"
-          [ngClass]="{ 'category': !dropCategoryIsActive, 'category-active': dropCategoryIsActive }">
-          <li>
-            <a [routerLink]="['/games']" (click)="get()" [queryParams]="{ category: 'mmorpg' }"
-              queryParamsHandling="merge">MMO</a>
-          </li>
-          <li>
-            <a [routerLink]="['/games']" (click)="get()" [queryParams]="{ category: 'shooter' }"
-              queryParamsHandling="merge">Shooter</a>
-          </li>
-
-        </ul>
-      </a>
-
     </nav>
+
+  </div>
+
+  <div class="dropdown platforms" id="collapseBasic" [collapse]="isPlatformCollapsed" [isAnimated]="true">
+    <h4 (click)="isPlatformCollapsed = !isPlatformCollapsed">Plataformas</h4>
+    <hr>
+    <ul>
+      <li *ngFor="let platform of platforms">
+        <a [routerLink]="['/games']" [queryParams]="{ platform: platform.queryParams }" queryParamsHandling="merge"
+          (click)="isPlatformCollapsed = !isPlatformCollapsed" >
+          {{ platform.name }}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="dropdown categories" id="collapseBasic" [collapse]="isCategoryCollapsed" [isAnimated]="true">
+    <h4 (click)="isCategoryCollapsed = !isCategoryCollapsed">Categorias</h4>
+    <hr>
+    <ul>
+      <li *ngFor="let category of categories">
+        <a [routerLink]="['/games']" [queryParams]="{ category: category.queryParams }" queryParamsHandling="merge"
+          (click)="isCategoryCollapsed = !isCategoryCollapsed">
+          {{ category.name }}
+        </a>
+      </li>
+    </ul>
   </div>
 </header>
