@@ -11,9 +11,13 @@ main {
   padding: 20px;
   //@include dflex(space-evenly);
 
-  select {
-    color: black;
-  }
+  // select {
+  //   color: black;
+  // }
+}
+
+.sorting-items #categorySorting{
+  max-height: 200px;
 }
 
 .cards {
@@ -44,6 +48,7 @@ main {
 
     .info {
       padding: 10px;
+      overflow: hidden;
     }
 
     &:hover {
@@ -54,5 +59,7 @@ main {
     }
   }
 }
+
+
 @import "~bootstrap/scss/bootstrap";
 //@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";

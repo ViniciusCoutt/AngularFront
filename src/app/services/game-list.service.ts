@@ -2,7 +2,7 @@ import { Game } from '../models/game';
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { API_PATH, headers } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { delay, first, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,20 +16,10 @@ export class GameListService {
   constructor(private http: HttpClient) {}
 
   get(url?: string) {
-    // category = undefined ? category = " " : category = `?category=${category}`
-    // platform = undefined ? platform = "" : platform = `?platform=${platform}`
-    // ${platform}${category}?
-    //console.log(window.location.search)
-
-    // this.result = this.http.get<Game[]>(`${this.gameUrl}${window.location.search}`,
-    // {headers})
-
-    this.result = this.http.get<Game[]>(`${this.gameUrl}${url}`, { headers });
-
-    //this.event.emit(this.result)
-
-    //GameListService.eventt.emit(this.result)
-
-    return this.result;
+    return this.http.get<Game[]>(`${this.gameUrl}${url}`, { headers })
+    .pipe(
+      first(), // After get the data, unsubscribe from the observable
+      
+    );
   }
 }
