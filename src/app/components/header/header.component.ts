@@ -14,8 +14,8 @@ export class HeaderComponent implements OnInit {
   games: Observable<Game[]>;
   categories: any[];
   platforms: any[];
-  isPlatformCollapsed: boolean = true;
-  isCategoryCollapsed: boolean = true;
+  isPlatformCollapsed: boolean = false;
+  isCategoryCollapsed: boolean = false;
 
   constructor(private gameListServ: GameListService) {
     this.platforms = classification.platforms;
@@ -32,12 +32,12 @@ export class HeaderComponent implements OnInit {
 
   categoryClick() {
     this.isCategoryCollapsed = !this.isCategoryCollapsed;
-    this.isPlatformCollapsed = true;
+    this.isPlatformCollapsed = false;
   }
 
   platformClick() {
     this.isPlatformCollapsed = !this.isPlatformCollapsed;
-    this.isCategoryCollapsed = true;
+    this.isCategoryCollapsed = false;
   }
 
 }
