@@ -20,8 +20,8 @@ export class GameListComponent {
   release_date: string;
   categories: any;
   platSelected: string;
-  error: string;
-  isAnError: boolean;
+  // error: string;
+  // isAnError: boolean;
 
   constructor(
     private gameListServ: GameListService,
@@ -48,6 +48,10 @@ export class GameListComponent {
       (error: any) => {
         console.log(error);
       };
+  }
+
+  onScrollDown():void {
+    console.log("Down");
   }
 
   // modalRef?: BsModalRef;
