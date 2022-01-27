@@ -15,8 +15,8 @@
       <ul id="dropdown-split" *dropdownMenu class="dropdown-menu dropdown-menu-dark" role="menu"
         aria-labelledby="button-split">
         <li role="menuitem" *ngFor="let platform of platforms">
-          <a class="dropdown-item" [routerLink]="['/games']"
-            [queryParams]="{ platform: platform.queryParams }" queryParamsHandling="merge">{{platform.name}}
+          <a class="dropdown-item" [routerLink]="['/games']" [queryParams]="{ platform: platform.queryParams }"
+            queryParamsHandling="merge">{{platform.name}}
           </a>
         </li>
       </ul>
@@ -35,8 +35,8 @@
       <ul id="dropdown-split" *dropdownMenu class="dropdown-menu dropdown-menu-dark" role="menu"
         aria-labelledby="button-split">
         <li role="menuitem" *ngFor="let category of categories">
-          <a class="dropdown-item" [routerLink]="['/games']"
-            [queryParams]="{ category: category.queryParams }" queryParamsHandling="merge">{{category.name}}
+          <a class="dropdown-item" [routerLink]="['/games']" [queryParams]="{ category: category.queryParams }"
+            queryParamsHandling="merge">{{category.name}}
           </a>
         </li>
       </ul>
@@ -52,8 +52,9 @@
 
       <div class="card">
         <img src="{{game.thumbnail}}" alt="thumbnail">
+        <h1>{{game.title}}</h1>
+        <!-- <hr style="color: red; opacity: 50;"> -->
         <div class="info">
-          <h1>{{game.title}}</h1>
           <p>{{game.short_description}}</p>
         </div>
       </div>
@@ -63,7 +64,7 @@
   </section>
 
   <ng-template #loading>
-    <div class="position-absolute top-50 start-50 translate-middle">
+    <div class="loading">
       <div class="spinner-grow text-primary" role="status" #loading>
         <span class="visually-hidden">Loading...</span>
       </div>
@@ -77,6 +78,17 @@
   </ng-template>
 
 
+  <!-- <button type="button" class="btn btn-primary"  *ngIf="isAnError ? openModal(template) : isAnError"></button>
+  <ng-template #template >
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Erro ⚠️</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Ocorreu um erro ao carregar a lista de jogos. Tente novamente.
+    </div>
+  </ng-template> -->
 
 </main>
-
