@@ -35,7 +35,7 @@ export default {
     },
     {
       name: 'Esporte',
-      queryParams: ' ',
+      queryParams: 'sports',
     },
     {
       name: 'Tiro',
