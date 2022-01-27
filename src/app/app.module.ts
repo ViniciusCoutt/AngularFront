@@ -6,6 +6,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { GameListComponent } from './components/game-list/game-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    GameListComponent,
+    GameListComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     MatExpansionModule,
     MatMenuModule,
     BsDropdownModule,
-    CollapseModule.forRoot()
+    CollapseModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
