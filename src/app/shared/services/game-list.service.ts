@@ -1,19 +1,10 @@
-import { Game } from '../../models/game';
-import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { API_PATH, headers } from 'src/environments/environment';
-import {
-  BehaviorSubject,
-  delay,
-  EMPTY,
-  filter,
-  first,
-  isEmpty,
-  Observable,
-  take,
-  tap,
-} from 'rxjs';
+import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { BehaviorSubject, filter, Observable, tap } from 'rxjs';
+import { API_PATH, headers } from 'src/environments/environment';
+
+import { Game } from '../../models/game';
 
 @Injectable({
   providedIn: 'root',
@@ -21,22 +12,27 @@ import { NavigationEnd, Router } from '@angular/router';
 export class GameListService {
   private gamesSubject = new BehaviorSubject<Game[]>([]);
   games$: Observable<Game[]> = this.gamesSubject.asObservable();
+  url: string = '';
 
-  constructor(private http: HttpClient) {
-
+  constructor(private http: HttpClient, private router: Router) {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((e) => {
+        if (window.location.pathname !== '/games') return;
+        this.getApiData();
+      });
   }
 
-  getApiData(url?: string): void {
-
-
-    this.http.get<Game[]>(`${API_PATH}${url}`, { headers })
+  getApiData(): void {
+    this.url = window.location.search;
+    this.http
+      .get<Game[]>(`${API_PATH}${this.url}`, { headers })
       .pipe(
-        take(1),
-        tap(res => {
+        tap((res) => {
           this.gamesSubject.next(res);
-          console.log(res)
+          console.log(res);
         })
-      ).subscribe();
-
+      )
+      .subscribe();
   }
 }
