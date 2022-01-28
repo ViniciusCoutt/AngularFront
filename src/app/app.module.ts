@@ -11,24 +11,28 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { GameListComponent } from './components/game-list/game-list.component';
-import { HeaderComponent } from './components/header/header.component';
-import { HomeComponent } from './components/home/home.component';
+// import { GameListComponent } from './components/pages/games/game-list/game-list.component';
+// import { HomeComponent } from './components/pages/home/home.component';
+// import { NotFoundComponent } from './components/pages/not-found/not-found.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+// import { HeaderComponent } from './shared/components/header/header.component';
+import { HeaderModule } from '@shared/components/header/header.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent,
-    HomeComponent,
-    GameListComponent
+    // HeaderComponent,
+    // HomeComponent,
+    // GameListComponent,
+    // NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    HeaderModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatExpansionModule,
