@@ -1,7 +1,4 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Game } from 'src/app/models/game';
-import { GameListService } from '@app/shared/services/game-list.service';
+import { Component } from '@angular/core';
 import classification from 'src/app/shared/classification-items';
 
 @Component({
@@ -10,7 +7,7 @@ import classification from 'src/app/shared/classification-items';
   styleUrls: ['./header.component.scss'],
 })
 
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   categories: any[];
   platforms: any[];
   isPlatformCollapsed: boolean = false;
@@ -19,16 +16,7 @@ export class HeaderComponent implements OnInit {
   constructor() {
     this.platforms = classification.platforms;
     this.categories = classification.genres;
-
   }
-
-  ngOnInit(): void {
-
-  }
-
-  // private get() {
-  //   this.gameListServ.getApiData();
-  // }
 
   categoryClick() {
     this.isCategoryCollapsed = !this.isCategoryCollapsed;
