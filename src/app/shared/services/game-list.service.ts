@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { BehaviorSubject, filter, Observable, tap } from 'rxjs';
+import { BehaviorSubject, delay, filter, first, Observable, tap } from 'rxjs';
 import { API_PATH, headers } from 'src/environments/environment';
 
 import { Game } from '../../models/game';
@@ -28,6 +28,8 @@ export class GameListService {
     this.http
       .get<Game[]>(`${API_PATH}${this.url}`, { headers })
       .pipe(
+        // delay(10000),
+        first(),
         tap((res) => {
           this.gamesSubject.next(res);
           console.log(res);
