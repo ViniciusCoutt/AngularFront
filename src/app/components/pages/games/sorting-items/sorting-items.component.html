@@ -1,0 +1,44 @@
+<div class="sorting-items">
+
+  <div id="platformBtn" class="btn-group" dropdown>
+
+    <label type="button" class="btn btn-danger">Plataforma:</label>
+    <button id="button-split platform" type="button" dropdownToggle class="btn btn-danger dropdown-toggle dropdown-toggle-split" aria-controls="dropdown-split">
+
+      <span class="caret"></span>
+      <span class="sr-only visually-hidden">Split button!</span>
+
+    </button>
+
+    <ul id="dropdown-split platform" *dropdownMenu class="dropdown-menu dropdown-menu-dark" role="menu" aria-labelledby="button-split">
+
+      <li role="menuitem" *ngFor="let platform of platforms">
+        <a class="dropdown-item" [routerLink]="['/games']" [queryParams]="{ platform: platform.queryParams }"
+          queryParamsHandling="merge">{{platform.name}}
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+  <div id="categoryBtn" class="btn-group" dropdown>
+
+    <label type="button" class="btn btn-danger">Categorias:</label>
+
+    <button id="button-split category" type="button" dropdownToggle
+      class="btn btn-danger dropdown-toggle dropdown-toggle-split" aria-controls="dropdown-split">
+      <span class="caret"></span>
+      <span class="sr-only visually-hidden">Split button!</span>
+    </button>
+
+    <ul id="dropdown-split category" *dropdownMenu class="dropdown-menu dropdown-menu-dark" role="menu"
+      aria-labelledby="button-split">
+      <li role="menuitem" *ngFor="let category of categories">
+        <a class="dropdown-item" [routerLink]="['/games']" [queryParams]="{ category: category.queryParams }"
+          queryParamsHandling="merge">{{category.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</div>

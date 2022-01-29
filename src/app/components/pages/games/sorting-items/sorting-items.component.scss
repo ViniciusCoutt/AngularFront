@@ -1,0 +1,20 @@
+.sorting-items {
+  padding: 30px;
+
+  #platformBtn {
+    margin-right: 25px;
+  }
+  .dropdown-menu.show{
+    max-height: 200px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      background-color:#32383E;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: hsl(210, 2%, 30%);
+    }
+  }
+}
