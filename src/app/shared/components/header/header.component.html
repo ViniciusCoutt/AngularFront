@@ -1,5 +1,5 @@
 <header>
-  <div class="header-content position-relative">
+  <div class="header-content">
 
     <h1>GamerSide</h1>
     <span class="logo" routerLink=""><img src="assets/img/logo.svg" alt="" /></span>
@@ -12,33 +12,33 @@
         Home
       </a>
 
-      <a type="button" (click)="platformClick()" [attr.aria-expanded]="isPlatformCollapsed"
-        aria-controls="collapseBasic">
+      <a type="button" (click)="platformClick()" (keypress)="platformClick()" [attr.aria-expanded]="isPlatformCollapsed"
+        aria-controls="collapseBasic" tabindex="0">
         Plataforma
       </a>
 
-      <a type="button" (click)="categoryClick()" [attr.aria-expanded]="isCategoryCollapsed"
-        aria-controls="collapseBasic">
+      <a type="button" (click)="categoryClick()" (keypress)="categoryClick()" [attr.aria-expanded]="isCategoryCollapsed"
+        aria-controls="collapseBasic" tabindex="0">
         Categorias
       </a>
     </nav>
 
   </div>
 
-  <div class="dropdown platforms" id="collapseBasic" [collapse]="!isPlatformCollapsed" [isAnimated]="true">
+  <div class="dropdown platforms" id="platform collapseBasic" [collapse]="!isPlatformCollapsed" [isAnimated]="true">
     <h4 (click)="platformClick()">Plataformas</h4>
     <hr>
     <ul>
       <li *ngFor="let platform of platforms">
         <a [routerLink]="['/games']" [queryParams]="{ platform: platform.queryParams }" queryParamsHandling="merge"
-        (click)="platformClick()" >
+        (click)="platformClick()">
           {{ platform.name }}
         </a>
       </li>
     </ul>
   </div>
 
-  <div class="dropdown categories" id="collapseBasic" [collapse]="!isCategoryCollapsed" [isAnimated]="true">
+  <div class="dropdown categories" id="category collapseBasic" [collapse]="!isCategoryCollapsed" [isAnimated]="true">
     <h4 (click)="categoryClick()">Categorias</h4>
     <hr>
     <ul>
