@@ -1,80 +1,19 @@
 <main>
 
-  <div class="sorting-items">
+  <app-sorting-items></app-sorting-items>
 
-    <div id="platformSorting" class="btn-group" dropdown>
+  <section id="cards" *ngIf="games$ | async as games else loading">
 
-      <label type="button" class="btn btn-danger">Plataforma:</label>
-      <button id="button-split" type="button" dropdownToggle
-        class="btn btn-danger dropdown-toggle dropdown-toggle-split" aria-controls="dropdown-split">
-        <span class="caret"></span>
-        <span class="sr-only visually-hidden">Split button!</span>
-
-      </button>
-
-      <ul id="dropdown-split" *dropdownMenu class="dropdown-menu dropdown-menu-dark" role="menu"
-        aria-labelledby="button-split">
-        <li role="menuitem" *ngFor="let platform of platforms">
-          <a class="dropdown-item" [routerLink]="['/games']" [queryParams]="{ platform: platform.queryParams }"
-            queryParamsHandling="merge">{{platform.name}}
-          </a>
-        </li>
-      </ul>
-
-    </div>
-
-    <div id="categorySorting" class="btn-group" dropdown>
-
-      <label type="button" class="btn btn-danger">Categorias:</label>
-      <button id="button-split" type="button" dropdownToggle
-        class="btn btn-danger dropdown-toggle dropdown-toggle-split" aria-controls="dropdown-split">
-        <span class="caret"></span>
-        <span class="sr-only visually-hidden">Split button!</span>
-      </button>
-
-      <ul id="dropdown-split" *dropdownMenu class="dropdown-menu dropdown-menu-dark" role="menu"
-        aria-labelledby="button-split">
-        <li role="menuitem" *ngFor="let category of categories">
-          <a class="dropdown-item" [routerLink]="['/games']" [queryParams]="{ category: category.queryParams }"
-            queryParamsHandling="merge">{{category.name}}
-          </a>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-
-  <section class="cards" *ngIf="games$ | async as games; else loading">
-
-    <div class="card-container">
-
-      <div class="card" *ngFor="let game of games$ | async">
-        <img src="{{game.thumbnail}}" alt="thumbnail">
-        <h1>{{game.title}}</h1>
-        <div class="info">
-          <p>{{game.short_description}}</p>
-        </div>
-      </div>
-
-    </div>
+    <app-game-card *ngFor="let game of games" [game]="game"></app-game-card>
 
   </section>
 
+
   <ng-template #loading>
-    <div class="loading">
-      <div class="spinner-grow text-primary" role="status" #loading>
-        <span class="visually-hidden">Loading...</span>
-      </div>
-      <div class="spinner-grow text-primary" role="status" #loading>
-        <span class="visually-hidden">Loading...</span>
-      </div>
-      <div class="spinner-grow text-primary" role="status" #loading>
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
+
+    <app-loading-spinner></app-loading-spinner>
+
   </ng-template>
 
-
-
-
 </main>
+
