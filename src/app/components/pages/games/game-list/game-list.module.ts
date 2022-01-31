@@ -17,6 +17,7 @@ import { GameListComponent } from './game-list.component';
     SortingItemsModule,
     LoadingSpinnerModule,
     GameCardModule,
+    
 
   ],
   declarations: [GameListComponent]
