@@ -13,7 +13,6 @@ import { Component, OnInit } from '@angular/core';
     </div>
   </div>`,
   styleUrls: ['./loading-spinner.component.scss'],
-  // providers:
 })
 export class LoadingSpinnerComponent {
 

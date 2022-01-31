@@ -24,30 +24,6 @@ export class GameListService {
       });
   }
 
-  // getGamesByPage(pageNum: number): void {
-  //   this.url = window.location.search;
-  //   this.http
-  //   .get<Game[]>(`${ API_PATH }${ this.url }`, { headers })
-  //   .pipe(
-  //     // delay(10000),
-  //     // first(),
-  //     // filter(apiResponse => apiResponse.length <= pageNum),
-  //     // pluck('id' <= pageNum),
-  //     // filter(event: )
-  //     map((apiResponse) => {
-  //       return apiResponse.splice(0, pageNum)
-  //     }),
-  //     take(1),
-  //     pluck('data', 'games'),
-  //     withLatestFrom(this.games$),
-  //     tap(([apiResponse, games]) => {
-  //       // this.gamesSubject.next(res);
-  //       console.log({apiResponse, games});
-  //     })
-  //   )
-  //   .subscribe(res => console.log(res));
-  // }
-
   getApiData(): void {
     this.url = window.location.search;
 
