@@ -4,23 +4,48 @@
     <h1>GamerSide</h1>
     <span class="logo" routerLink=""><img src="assets/img/logo.svg" alt="" /></span>
 
-    <nav class="menu">
 
-      <a routerLink=""
-        (click)="isCategoryCollapsed ? isCategoryCollapsed=false : isCategoryCollapsed"
-        (click)="isPlatformCollapsed ? isPlatformCollapsed=false : isPlatformCollapsed">
-        Home
-      </a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
 
-      <a type="button" (click)="platformClick()" (keypress)="platformClick()" [attr.aria-expanded]="isPlatformCollapsed"
-        aria-controls="collapseBasic" tabindex="0">
-        Plataforma
-      </a>
+        <!-- DESKTOP MENU -->
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a routerLink="" (click)="isCategoryCollapsed ? isCategoryCollapsed=false : isCategoryCollapsed"
+                (click)="isPlatformCollapsed ? isPlatformCollapsed=false : isPlatformCollapsed">
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="dropdown-toggle" (click)="platformClick()" (keypress)="platformClick()"
+                [attr.aria-expanded]="isPlatformCollapsed" aria-controls="collapseBasic" tabindex="0">
+                Plataformas
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="dropdown-toggle" (click)="categoryClick()" (keypress)="categoryClick()"
+                [attr.aria-expanded]="isCategoryCollapsed" aria-controls="collapseBasic" tabindex="0">
+                Categorias
+              </a>
+            </li>
+          </ul>
+        </div>
 
-      <a type="button" (click)="categoryClick()" (keypress)="categoryClick()" [attr.aria-expanded]="isCategoryCollapsed"
-        aria-controls="collapseBasic" tabindex="0">
-        Categorias
-      </a>
+        <!-- MOBILE DROPDOWN MENU -->
+        <button id="button-split" role="button" class="navbar-toggler" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-end  drop-hamburguer dropdown-menu-dark" aria-labelledby="button-split">
+          <li><a class="dropdown-item" routerLink="">Home</a></li>
+          <li><a class="dropdown-item dropdown-toggle" (click)="platformClick()" (keypress)="platformClick()"
+              [attr.aria-expanded]="isPlatformCollapsed" aria-controls="collapseBasic" tabindex="0">Plataformas</a></li>
+          <li><a class="dropdown-item dropdown-toggle" (click)="categoryClick()" (keypress)="categoryClick()"
+              [attr.aria-expanded]="isCategoryCollapsed" aria-controls="collapseBasic" tabindex="0">Categorias</a></li>
+        </ul>
+
+      </div>
     </nav>
 
   </div>
@@ -31,7 +56,7 @@
     <ul>
       <li *ngFor="let platform of platforms">
         <a [routerLink]="['/games']" [queryParams]="{ platform: platform.queryParams }" queryParamsHandling="merge"
-        (click)="platformClick()">
+          (click)="platformClick()">
           {{ platform.name }}
         </a>
       </li>
@@ -44,7 +69,7 @@
     <ul>
       <li *ngFor="let category of categories">
         <a [routerLink]="['/games']" [queryParams]="{ category: category.queryParams }" queryParamsHandling="merge"
-        (click)="categoryClick()">
+          (click)="categoryClick()">
           {{ category.name }}
         </a>
       </li>

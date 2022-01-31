@@ -1,10 +1,18 @@
 @import "./src/styles.scss";
 
+.desktop-menu {
+  display: none;
+}
+
 .header-content {
-  h1 { display: none; }
+  h1 {
+    display: none;
+  }
+
+  height: 100px;
 
   .logo img {
-    width: 200px;
+    width: 80%;
 
     &:hover {
       cursor: pointer;
@@ -14,22 +22,6 @@
   @include dflex(space-around);
   box-shadow: 0 7px 10px rgb(0 0 0 / 25%);
   padding: 60px 0;
-}
-
-.menu {
-  @include dflex(space-evenly);
-  gap: 20px;
-
-  a {
-    font-size: 1.2rem;
-    @include dflex(space-between);
-  }
-
-  a:hover {
-    transition: 0.3s;
-    cursor: pointer;
-    color: #dc3545;
-  }
 }
 
 .dropdown {
@@ -45,38 +37,102 @@
   }
 
   ul {
-    width: 30%;
     max-height: 250px;
-    margin: auto;
     list-style: none;
 
     li {
-      padding: 5px;
+      padding: 10px;
     }
 
     a {
       padding: 10px;
+
     }
 
     a:hover {
       transition: .2s;
       color: #dc3545;
-
     }
   }
 }
 
 .platforms ul {
-  padding: 50px 0px;
-
-  li {
-    margin: auto;
-  }
+  @include dflex(center);
+  flex-direction: column;
+  padding: 30px 0px;
 }
 
 .categories ul {
   display: flex;
+  margin: auto;
   flex-direction: column;
   flex-wrap: wrap;
+  max-height: 275px;
+}
+
+ul.drop-hamburguer {
+
   padding: 20px;
+
+
+  a {
+    cursor: pointer;
+    padding: 5px
+  }
+
+}
+
+@media (min-width: 576px) {
+  .navbar-nav {
+    @include dflex(space-evenly);
+    gap: 20px;
+
+    a {
+      font-size: 1.2rem;
+      @include dflex(space-between);
+      color: white;
+    }
+
+    a:hover {
+      transition: 0.3s;
+      cursor: pointer;
+      color: #dc3545;
+    }
+  }
+
+  .dropdown {
+
+
+    ul {
+      width: 35%;
+      margin: auto;
+
+      li {
+        padding: 5px;
+      }
+    }
+  }
+
+  .platforms ul {
+    padding: 50px 0px;
+    flex-direction: row;
+
+    li {
+      margin: auto;
+    }
+
+    a {
+      white-space: nowrap;
+    }
+  }
+
+  .categories ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+
+
+
 }
