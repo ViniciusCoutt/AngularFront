@@ -1,12 +1,14 @@
-<main infiniteScroll (scrolled)="onScrollDown()">
+<main>
 
   <app-sorting-items></app-sorting-items>
+  <!-- <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScrollDown()"> -->
 
-  <section id="cards" *ngIf="games$ | async as games else loading">
+  <section id="cards" *ngIf="games$ | async as games">
 
     <app-game-card *ngFor="let game of games" [game]="game"></app-game-card>
 
   </section>
+  <!-- </div> -->
 
 
   <ng-template #loading>
@@ -16,8 +18,7 @@
   </ng-template>
 
 
-  <button *ngIf="showBtn" (click)="scrollUp()" class="up-btn" >🔝</button>
+  <button *ngIf="showBtn" (click)="scrollUp()" class="up-btn">🔝</button>
 
 
 </main>
-

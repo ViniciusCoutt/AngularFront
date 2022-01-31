@@ -1,8 +1,9 @@
+import { LoadingSpinnerService } from './../../../../shared/services/spinner.service';
 import { DOCUMENT } from '@angular/common';
 import { Component, HostListener, Inject } from '@angular/core';
 import { Game } from '@app/models/game';
 import { GameListService } from '@shared/services/game-list.service';
-import { EMPTY, Observable } from 'rxjs';
+import { EMPTY, observable, Observable, filter, map } from 'rxjs';
 
 @Component({
   selector: 'app-game-list',
@@ -13,13 +14,21 @@ import { EMPTY, Observable } from 'rxjs';
 export class GameListComponent {
 
   games$ = this.gameListServ.games$;
+  // games$: any;
+
+
   showBtn: boolean = false;
   private scrollHeight = 500;
 
 
+
   constructor(@Inject(DOCUMENT) private document: Document,
-    private gameListServ: GameListService
-  ) {}
+    private gameListServ: GameListService,
+    // public spinner: LoadingSpinnerService
+  ) {
+    // this.games$ = this.loadCards();
+    console.log(this.games$);
+  }
 
   @HostListener('window:scroll')
   onWindowScroll(): void {
@@ -32,8 +41,23 @@ export class GameListComponent {
     this.document.documentElement.scrollTop = 0;
   }
 
-  onScrollDown(): void {
-    this.gameListServ.getGamesByPage(2)
-    console.log("down")
-  }
+  // onScrollDown(): void {
+  //   this.spinner.show();
+  //   this.notScrolled = false;
+  //   this.loadCards();
+  //   console.log("Scrolled")
+  // }
+
+  // loadCards(): any {
+  //   // this.gameListServ.games$.subscribe(valor => {this.games$.push(valor)});
+  //   // this.games$ = this.gameListServ.games$.subscribe(value => value.splice(0, 10));
+  //   // this.games$ = this.gameListServ.games$.pipe(map( value => {
+  //   //    value.slice(0, 10)
+  //   //   })
+  //   // );
+  //   // this.games$ =
+  //   this.gameListServ.games$.pipe(map( (v: Game[]) => { return v.slice(0, 10)})).subscribe;
+  //   console.log(this.games$)
+
+  // }
 }
