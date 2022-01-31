@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 
 const PORT = process.env.PORT || 8080;
+const appName = 'angular-front'
 
-
-app.use(express.static(__dirname + '/dist/angular-front'));
+app.use(express.static(__dirname + `/dist/${appName}`));
 
 app.get('/*', (req, res) => {
-  res.send(__dirname + '/dist/angular-front/index.html')
+  res.send(path.join(__dirname + `/dist/${appName}/index.html`))
 });
 
 app.listen(PORT, () => {
