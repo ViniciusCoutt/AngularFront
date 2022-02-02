@@ -8,8 +8,8 @@ import classification from 'src/app/shared/classification-items';
 })
 
 export class HeaderComponent {
-  categories: any[];
-  platforms: any[];
+  categories: any;
+  platforms: any;
   isPlatformCollapsed: boolean = false;
   isCategoryCollapsed: boolean = false;
 
