@@ -8,7 +8,7 @@
 - **TypeScript**
 - Estilização: **scss** e **ngx-bootstrap**
 
-### Página desktop: 
+## Página desktop: 
 
 <p align="center">
 
@@ -18,7 +18,7 @@
 
 <img src="readme-img/desktop.gif" alt="gif desktop layout">
 
-### Página mobile
+## Página mobile
 
 <p align="center">
 <img src="readme-img/mobile.gif" alt="gif mobile layout">
