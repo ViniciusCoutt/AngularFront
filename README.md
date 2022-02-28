@@ -1,27 +1,35 @@
-# AngularFront
+<h1 align="center"> GamerSide </h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+## Encontre os melhores jogos free-to-play 🕹️
 
-## Development server
+### Tecnologias 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- **Angular**
+- **TypeScript**
+- Estilização: **scss** e **ngx-bootstrap**
 
-## Code scaffolding
+### Página desktop: 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<p align="center">
 
-## Build
+</p>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<h2 align="center"> </h1>
 
-## Running unit tests
+<img src="readme-img/desktop.gif" alt="gif desktop layout">
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Página mobile
 
-## Running end-to-end tests
+<p align="center">
+<img src="readme-img/mobile.gif" alt="gif mobile layout">
+</p>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Como rodar:
 
-## Further help
+- Clone o código para a sua maquina;
+- Use a IDE de sua preferência;
+- Utilize o comando npm start;
+- Abra seu navegador e entre na porta: `localhost:8080/`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
