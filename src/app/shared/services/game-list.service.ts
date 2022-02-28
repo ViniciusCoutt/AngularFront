@@ -13,7 +13,7 @@ export class GameListService {
   private gamesSubject = new BehaviorSubject<Game[]>([]);
   games$: Observable<Game[]> = this.gamesSubject.asObservable();
 
-  url: string = '';
+  // url: string = '';
 
   constructor(private http: HttpClient, private router: Router) {
     this.router.events
@@ -25,10 +25,10 @@ export class GameListService {
   }
 
   getApiData(): void {
-    this.url = window.location.search;
+    const url = window.location.search;
 
     this.http
-      .get<Game[]>(`${API_PATH}${this.url}`, { headers })
+      .get<Game[]>(`${API_PATH}${url}`, { headers })
       .pipe(take(1))
       .subscribe((res) => this.gamesSubject.next(res));
   }
