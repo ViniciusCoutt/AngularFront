@@ -9,11 +9,11 @@
 
 - **Angular**
 - **TypeScript**
-- Estilização: **scss** e **ngx-bootstrap**
+- Estilização: **Scss** e **Ngx-bootstrap**
 
 <br>
 
-## Página desktop:
+## Página desktop
 
 <img src="readme-img/desktop.gif" alt="gif desktop layout">
 
