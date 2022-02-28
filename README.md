@@ -17,11 +17,15 @@
 
 <img src="readme-img/desktop.gif" alt="gif desktop layout">
 
+<br>
+
 ## Página mobile
 
 <p align="center">
 <img src="readme-img/mobile.gif" alt="gif mobile layout">
 </p>
+
+<br>
 
 ## Como rodar:
 
