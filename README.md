@@ -10,6 +10,7 @@
 - **Angular**
 - **TypeScript**
 - Estilização: **Scss** e **Ngx-bootstrap**
+- Figma: https://www.figma.com/file/ekwvMPvWjapqZqcEzdLmV9/Untitled?node-id=0%3A1
 
 <br>
 
