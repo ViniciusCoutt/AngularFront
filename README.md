@@ -10,7 +10,6 @@
 - **Angular**
 - **TypeScript**
 - Estilização: **Scss** e **Ngx-bootstrap**
-- Figma: https://bityli.com/FrAIo
 
 <br>
 
